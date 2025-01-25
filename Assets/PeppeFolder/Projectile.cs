@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
         {
             Debug.Log("Colpito!");
             GameManager.instance.IncreaseScore(10);
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 }
