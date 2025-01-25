@@ -1775,7 +1775,35 @@ MonoBehaviour:
   musicVolume: 0.5
   effectsVolume: 0.5
   dialogueVolume: 0.5
-  audioElements: []
+  audioElements:
+  - name: music
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 1f0ee9fb7d7af97488e43763eebf907e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    audioCategory: 1
+  - name: bubble1
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 7ac4b3ecd62261147a65a57cc6c5f27a, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    audioCategory: 2
+  - name: bubble2
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 5892503a7b1da86468719a1ac73625c1, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    audioCategory: 2
+  - name: powerUp
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 85cc9ffde04154b4fb6876fe70b13459, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    audioCategory: 2
 --- !u!114 &512037351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1783,7 +1811,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512037348}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18aad3e999dedf747a0c71fb4222e2ab, type: 3}
   m_Name: 
@@ -3536,6 +3564,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Life
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 512037350}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: music
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1305829154

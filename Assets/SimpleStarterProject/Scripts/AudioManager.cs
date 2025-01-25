@@ -20,7 +20,7 @@ public class AudioElement
     [HideInInspector] public AudioSource source;
     public AudioClip clip;
     [Range(0,1)] public float volume = 1;
-    [Range(0, 1)] public float pitch = 0.5f;
+    [Range(0, 3)] public float pitch = 1f;
     public bool loop;
     public AudioCategory audioCategory;
 }
@@ -71,6 +71,11 @@ public class AudioManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void SetPitch(string audioName, float pitch)
+    {
+        audioElements[_indexCache[audioName]].source.pitch = pitch;
     }
 
     private void SetupAudioSources()
@@ -134,35 +139,35 @@ public class AudioManager : MonoBehaviour
     }
     public void SetMasterVolume(float volume)
     {
-        SetVolume(AudioCategory.MASTER, Mathf.Clamp01(volume));
+        SetVolume(AudioCategory.MASTER, (Mathf.Clamp01(volume)*100 - 80));
     }
     public void SetMusicVolume(float volume)
     {
-        SetVolume(AudioCategory.MUSIC, Mathf.Clamp01(volume));
+        SetVolume(AudioCategory.MUSIC, (Mathf.Clamp01(volume) * 100 - 80));
     }
     public void SetEffectsVolume(float volume)
     {
-        SetVolume(AudioCategory.EFFECTS, Mathf.Clamp01(volume));
+        SetVolume(AudioCategory.EFFECTS, (Mathf.Clamp01(volume) * 100 - 80));
     }
     public void SetDialogueVolume(float volume)
     {
-        SetVolume(AudioCategory.DIALOGUE, Mathf.Clamp01(volume));
+        SetVolume(AudioCategory.DIALOGUE, (Mathf.Clamp01(volume) * 100 - 80));
     }
     public void SetVolume(AudioCategory audioCategory, float volume)
     {
         switch (audioCategory)
         {
             case AudioCategory.MASTER:
-                masterVolume = Mathf.Clamp01(volume);
+                masterVolume = (Mathf.Clamp01(volume) * 100 - 80);
                 break;
             case AudioCategory.MUSIC:
-                musicVolume = Mathf.Clamp01(volume);
+                musicVolume = (Mathf.Clamp01(volume) * 100 - 80);
                 break;
             case AudioCategory.EFFECTS:
-                effectsVolume = Mathf.Clamp01(volume);
+                effectsVolume = (Mathf.Clamp01(volume) * 100 - 80);
                 break;
             case AudioCategory.DIALOGUE:
-                dialogueVolume = Mathf.Clamp01(volume);
+                dialogueVolume = (Mathf.Clamp01(volume) * 100 - 80);
                 break;
         }
         mixer.SetFloat("masterVolume", masterVolume);

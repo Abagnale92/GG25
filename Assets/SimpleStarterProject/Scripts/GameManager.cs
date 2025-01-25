@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
                 //State Code
                 break;
             case GameState.GAME_LOOP:
+                AudioManager.instance.SetPitch("music", 0.3f + Mathf.Clamp((Time.time / 300), 0, 1));
                 //State Code
                 break;
             case GameState.GAME_OVER:

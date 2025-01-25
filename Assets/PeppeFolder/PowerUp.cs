@@ -12,7 +12,7 @@ public class PowerUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Player player = other.GetComponent<Player>();
-
+            AudioManager.instance.Play("powerUp");
             if (player != null)
             {
                 player.ActivatePowerUp(powerUpType, duration);

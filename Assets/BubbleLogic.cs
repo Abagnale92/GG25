@@ -95,10 +95,12 @@ public class BubbleLogic : MonoBehaviour
     {
         if(BubbleSize <= 1)
         {
+            AudioManager.instance.Play("bubble1");
             FreePowerUp();
             Destroy(this.gameObject);
         } else
         {
+            AudioManager.instance.Play("bubble2");
             GameObject b1 = Instantiate(this.gameObject, transform.position + new Vector3(0.5f, 0) , Quaternion.identity);
             b1.GetComponent<Rigidbody2D>().AddForce(new Vector2(1, -0.1f) * Time.deltaTime * splitForce, ForceMode2D.Impulse);
             b1.GetComponent<BubbleLogic>().SetBubbleSize( Mathf.FloorToInt(this.BubbleSize / 2f));
