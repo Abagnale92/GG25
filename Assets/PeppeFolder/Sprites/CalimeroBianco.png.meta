@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CalimeroBianco_0: 8859849017732464346
+      CalimeroBianco_1: 8613900173869975774
+      CalimeroBianco_2: -4132144167167086076
+      CalimeroBianco_3: 8783599492215486691
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
