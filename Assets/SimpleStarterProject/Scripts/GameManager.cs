@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
     {
         AudioManager.instance.SetPitch("music", 0.4f + Mathf.Clamp((slipperyLevel/20f), 0, 1));
         slipperyLevel += 1;
-        UIManager.UpdateLifeCounter();
   
 
 
@@ -56,7 +55,7 @@ public class GameManager : MonoBehaviour
         LoadScene(1);
         GameManager.instance.slipperyLevel = 0;
         GameManager.instance.score = 0;
-        UIManager.UpdateLifeCounter();
+
     }
 
     public void SetGameState(int gameStateValue)

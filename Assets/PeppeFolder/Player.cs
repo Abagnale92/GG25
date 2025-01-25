@@ -34,10 +34,9 @@ public class Player : MonoBehaviour
 
     }
 
-    void Move()
+    void Move() 
     {
         float moveInput = Input.GetAxis("Horizontal");
-
         if (moveInput != 0)
         {
             lastMoveDirection = moveInput > 0 ? 1 : -1;
@@ -46,7 +45,7 @@ public class Player : MonoBehaviour
         else
         {
             // Continue moving in the last direction without additional force
-            rb.AddForce(Vector2.right * lastMoveDirection * speed * Time.deltaTime * 5 * (1 + GameManager.instance.slipperyLevel / 5));
+            rb.AddForce(Vector2.right * lastMoveDirection * speed * Time.deltaTime * 20 * (1 + GameManager.instance.slipperyLevel / 5));
         }
 
         animator.SetFloat("Speed", Mathf.Abs(moveInput));
@@ -72,6 +71,7 @@ public class Player : MonoBehaviour
             }
             else
             {
+                AudioManager.instance.Play("throw");
                 Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
             }
 
@@ -84,6 +84,9 @@ public class Player : MonoBehaviour
         Instantiate(projectilePrefab, firePoint.position, Quaternion.identity); // Centrale
         Instantiate(projectilePrefab, firePoint.position, Quaternion.Euler(0, 0, 15)); // Destra
         Instantiate(projectilePrefab, firePoint.position, Quaternion.Euler(0, 0, -15)); // Sinistra
+        AudioManager.instance.Play("throw");
+        AudioManager.instance.Play("throw");
+        AudioManager.instance.Play("throw");
     }
 
     // Metodo per attivare i Power-ups
