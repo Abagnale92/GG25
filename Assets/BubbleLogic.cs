@@ -27,6 +27,7 @@ public class BubbleLogic : MonoBehaviour
     public void SetPowerUp(PowerUpType type)
     {
         puComponent.powerUpType = type;
+        puComponent.UpdateGraphics();
         powerUp.gameObject.SetActive(true);
         isPowerUp = true;
      
@@ -85,7 +86,7 @@ public class BubbleLogic : MonoBehaviour
         if (isPowerUp)
         {
             powerUp.SetParent(transform.parent);
-            powerUp.GetComponent<CapsuleCollider2D>().enabled = true;
+            powerUp.GetComponent<Collider2D>().enabled = true;
             powerUp.GetComponent<Rigidbody2D>().simulated = true;
             puComponent.enabled = true;   
         }

@@ -9,17 +9,35 @@ public class Player : MonoBehaviour
     [SerializeField] float fireRate = 0.5f;
     private float nextFireTime = 0f;
     private bool isTripleShotActive = false;
+    [SerializeField] private Animator animator;
+
+
+
 
     private void Update()
     {
         Move();
         Shoot();
+
+
+     
     }
 
     void Move()
     {
         float moveInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector2.right * moveInput * speed * Time.deltaTime);
+        animator.SetFloat("Speed", Mathf.Abs(moveInput));
+    }
+
+    public void GameOver()
+    {
+        animator.SetBool("Lost", true);
+    }
+
+    public void Restart()
+    {
+        animator.SetBool("Lost", false);
     }
 
     void Shoot()

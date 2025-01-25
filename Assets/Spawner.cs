@@ -53,7 +53,7 @@ public class Spawner : MonoBehaviour
         float rand = Random.Range(0, 100);
         if(rand <= 20)
         {
-            rand = Random.Range(0, 2);
+            rand = Random.Range(0, 3);
             switch (rand)
             {
                 case 0:
@@ -64,6 +64,9 @@ public class Spawner : MonoBehaviour
                     break;
                 case 2:
                     bubbleLogic.SetPowerUp(PowerUpType.TripleShot);
+                    break;
+                default:
+                    bubbleLogic.SetPowerUp(PowerUpType.FireRate);
                     break;
             }
             

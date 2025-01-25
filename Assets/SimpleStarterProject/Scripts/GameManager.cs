@@ -38,14 +38,17 @@ public class GameManager : MonoBehaviour
 
         if(lives <= 0)
         {
-            Time.timeScale = 0;
+            
             gameState = GameState.GAME_OVER;
+            FindFirstObjectByType<Player>().GetComponent<Animator>().SetBool("Lost", true);
             UIManager.ShowElement("RestartBtn");
+            Time.timeScale = 0;
         }
     }
 
     public static void RestartGame()
     {
+        FindFirstObjectByType<Player>().GetComponent<Animator>().SetBool("Lost", false);
         UIManager.HideElement("RestartBtn");
         Time.timeScale = 1;
         UnloadScene(1);

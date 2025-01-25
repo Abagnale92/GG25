@@ -98,6 +98,6 @@ public class UIManager : MonoBehaviour
 
     public static void UpdateLifeCounter()
     {
-        instance._UIElements["Life"].GetComponent<TextMeshProUGUI>().text = GameManager.instance.lives + "";
+        instance._UIElements["Life"].GetComponentInChildren<TextMeshProUGUI>().text = GameManager.instance.lives + "";
     }
 }
