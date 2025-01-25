@@ -60,7 +60,7 @@ public class Spawner : MonoBehaviour
                     bubbleLogic.SetPowerUp(PowerUpType.FireRate);
                     break;
                 case 1:
-                    bubbleLogic.SetPowerUp(PowerUpType.Speed);
+                    //bubbleLogic.SetPowerUp(PowerUpType.Speed);
                     break;
                 case 2:
                     bubbleLogic.SetPowerUp(PowerUpType.TripleShot);

@@ -4,29 +4,51 @@ using System.Collections;
 public class Player : MonoBehaviour
 {
     [SerializeField] float speed = 5f;
+    [SerializeField] float maxSpeed = 15f;  
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] Transform firePoint;
     [SerializeField] float fireRate = 0.5f;
     private float nextFireTime = 0f;
     private bool isTripleShotActive = false;
     [SerializeField] private Animator animator;
+    private Rigidbody2D rb;
 
+    private float lastMoveDirection = 1f; // Default moving right
 
-
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     private void Update()
     {
         Move();
         Shoot();
+        
+        /*
+        if(rb.linearVelocity.magnitude > maxSpeed)
+        {
+            rb.AddForce(rb.linearVelocity * -1 * Time.deltaTime * 10 );
+        }
+        */
 
-
-     
     }
 
     void Move()
     {
         float moveInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector2.right * moveInput * speed * Time.deltaTime);
+
+        if (moveInput != 0)
+        {
+            lastMoveDirection = moveInput > 0 ? 1 : -1;
+            rb.AddForce(Vector2.right * moveInput * speed * Time.deltaTime * 60 * (1 + GameManager.instance.slipperyLevel/5));
+        }
+        else
+        {
+            // Continue moving in the last direction without additional force
+            rb.AddForce(Vector2.right * lastMoveDirection * speed * Time.deltaTime * 5 * (1 + GameManager.instance.slipperyLevel / 5));
+        }
+
         animator.SetFloat("Speed", Mathf.Abs(moveInput));
     }
 

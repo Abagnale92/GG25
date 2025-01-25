@@ -6,6 +6,7 @@ using System;
 
 public enum GameState
 {
+    MAIN_MENU,
     GAME_SETUP,
     GAME_LOOP,
     GAME_OVER
@@ -21,29 +22,29 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [SerializeField] public GameState gameState;
-    public int lives = 3;
+    public int slipperyLevel = 0;
     private int score = 0;
+    private float timeScore = 0;
+    private int finalScore = 0;
     public GameObject bubblePrefab;
     public List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
 
     public void LoseLife()
     {
-        lives -= 1;
+        AudioManager.instance.SetPitch("music", 0.4f + Mathf.Clamp((slipperyLevel/20f), 0, 1));
+        slipperyLevel += 1;
         UIManager.UpdateLifeCounter();
-        BubbleLogic[] bubbles = FindObjectsOfType<BubbleLogic>();
-        foreach(BubbleLogic b in bubbles)
-        {
-            Destroy(b.gameObject);
-        }
+  
 
-        if(lives <= 0)
-        {
-            
-            gameState = GameState.GAME_OVER;
-            FindFirstObjectByType<Player>().GetComponent<Animator>().SetBool("Lost", true);
-            UIManager.ShowElement("RestartBtn");
-            Time.timeScale = 0;
-        }
+
+    }
+
+    public void GameOverScreen()
+    {
+        gameState = GameState.GAME_OVER;
+        FindFirstObjectByType<Player>().GetComponent<Animator>().SetBool("Lost", true);
+        UIManager.ShowElement("RestartBtn");
+        Time.timeScale = 0;
     }
 
     public static void RestartGame()
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         UnloadScene(1);
         LoadScene(1);
-        GameManager.instance.lives = 3;
+        GameManager.instance.slipperyLevel = 0;
         GameManager.instance.score = 0;
         UIManager.UpdateLifeCounter();
     }
@@ -88,11 +89,18 @@ public class GameManager : MonoBehaviour
     {
         switch (gameState) 
         {
+            case GameState.MAIN_MENU:
+                break;
+
             case GameState.GAME_SETUP:
+                AudioManager.instance.SetPitch("music", 0.4f);
+                gameState = GameState.GAME_LOOP;
                 //State Code
                 break;
             case GameState.GAME_LOOP:
-                AudioManager.instance.SetPitch("music", 0.3f + Mathf.Clamp((Time.time / 300), 0, 1));
+                timeScore += Time.deltaTime;
+                finalScore = Mathf.FloorToInt(timeScore + score);
+                UIManager.instance.UpdateScoreUI(finalScore);
                 //State Code
                 break;
             case GameState.GAME_OVER:
@@ -131,7 +139,7 @@ public class GameManager : MonoBehaviour
     {
         score += amount;
         Debug.Log("Punteggio aggiornato: " + score);
-        UIManager.instance.UpdateScoreUI(score);
+        UIManager.instance.UpdateScoreUI(finalScore);
     }
 
     //LoadSceneWithCurtain allows you to load and unload one or multiple scenes

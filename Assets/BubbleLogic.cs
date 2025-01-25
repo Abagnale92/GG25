@@ -78,6 +78,7 @@ public class BubbleLogic : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             GameManager.instance.LoseLife();
+            OnDeath();
         }
     }
 
