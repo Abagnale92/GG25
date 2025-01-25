@@ -95,4 +95,9 @@ public class UIManager : MonoBehaviour
             Debug.LogWarning("TextMeshProUGUI per il punteggio non assegnato nell'Inspector!");
         }
     }
+
+    public static void UpdateLifeCounter()
+    {
+        instance._UIElements["Life"].GetComponent<TextMeshProUGUI>().text = GameManager.instance.lives + "";
+    }
 }

@@ -21,10 +21,39 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [SerializeField] public GameState gameState;
+    public int lives = 3;
     private int score = 0;
 
     public List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
 
+    public void LoseLife()
+    {
+        lives -= 1;
+        UIManager.UpdateLifeCounter();
+        BubbleLogic[] bubbles = FindObjectsOfType<BubbleLogic>();
+        foreach(BubbleLogic b in bubbles)
+        {
+            Destroy(b.gameObject);
+        }
+
+        if(lives <= 0)
+        {
+            Time.timeScale = 0;
+            gameState = GameState.GAME_OVER;
+            UIManager.ShowElement("RestartBtn");
+        }
+    }
+
+    public static void RestartGame()
+    {
+        UIManager.HideElement("RestartBtn");
+        Time.timeScale = 1;
+        UnloadScene(1);
+        LoadScene(1);
+        GameManager.instance.lives = 3;
+        GameManager.instance.score = 0;
+        UIManager.UpdateLifeCounter();
+    }
 
     public void SetGameState(int gameStateValue)
     {
@@ -63,6 +92,8 @@ public class GameManager : MonoBehaviour
                 //State Code
                 break;
             case GameState.GAME_OVER:
+
+
                 //State Code
                 break;
         }
