@@ -1804,6 +1804,13 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     audioCategory: 2
+  - name: bubble3
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 85cc9ffde04154b4fb6876fe70b13459, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    audioCategory: 2
 --- !u!114 &512037351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1845,6 +1852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: 0
   lives: 3
+  bubblePrefab: {fileID: 6262501956429844256, guid: c9ae5ef9161002c45b24daff19cf4061, type: 3}
 --- !u!1 &659387417
 GameObject:
   m_ObjectHideFlags: 0
@@ -3576,6 +3584,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: music
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 512037352}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: SetGameState
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1305829154

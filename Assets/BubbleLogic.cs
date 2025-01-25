@@ -101,14 +101,13 @@ public class BubbleLogic : MonoBehaviour
         } else
         {
             AudioManager.instance.Play("bubble2");
-            GameObject b1 = Instantiate(this.gameObject, transform.position + new Vector3(0.5f, 0) , Quaternion.identity);
+            GameObject b1 = Instantiate(GameManager.instance.bubblePrefab, transform.position + new Vector3(0.5f, 0) , Quaternion.identity);
             b1.GetComponent<Rigidbody2D>().AddForce(new Vector2(1, -0.1f) * Time.deltaTime * splitForce, ForceMode2D.Impulse);
             b1.GetComponent<BubbleLogic>().SetBubbleSize( Mathf.FloorToInt(this.BubbleSize / 2f));
          
 
 
-
-            GameObject b2 = Instantiate(this.gameObject, transform.position + new Vector3(0.5f, 0), Quaternion.identity);
+            GameObject b2 = Instantiate(GameManager.instance.bubblePrefab, transform.position + new Vector3(0.5f, 0), Quaternion.identity);
             b2.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1, -0.1f) * Time.deltaTime *  splitForce, ForceMode2D.Impulse);
             b2.GetComponent<BubbleLogic>().SetBubbleSize(Mathf.FloorToInt(this.BubbleSize / 2f));
 

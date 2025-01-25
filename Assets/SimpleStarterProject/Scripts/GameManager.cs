@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameState gameState;
     public int lives = 3;
     private int score = 0;
-
+    public GameObject bubblePrefab;
     public List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
 
     public void LoseLife()
