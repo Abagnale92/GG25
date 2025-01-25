@@ -20,7 +20,8 @@ public enum SceneIndexs
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    [SerializeField] public GameState gameState; 
+    [SerializeField] public GameState gameState;
+    private int score = 0;
 
     public List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
 
@@ -91,6 +92,12 @@ public class GameManager : MonoBehaviour
             UIManager.instance.RefreshUIElemets();
     }
 
+    public void IncreaseScore(int amount)
+    {
+        score += amount;
+        Debug.Log("Punteggio aggiornato: " + score);
+        UIManager.instance.UpdateScoreUI(score);
+    }
 
     //LoadSceneWithCurtain allows you to load and unload one or multiple scenes
     //In addition it supports the visualization of the UI Element declared in the UI Manager

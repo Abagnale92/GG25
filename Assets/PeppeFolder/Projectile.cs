@@ -21,6 +21,7 @@ public class Projectile : MonoBehaviour
         if (col.gameObject.CompareTag(targetTag))
         {
             Debug.Log("Colpito!");
+            GameManager.instance.IncreaseScore(10);
             Destroy(gameObject);
         }
     }

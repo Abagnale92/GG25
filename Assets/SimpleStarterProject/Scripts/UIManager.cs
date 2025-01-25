@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
     public List<UIElement> UIElements = new List<UIElement>();
-    public Dictionary<string, UIElement> _UIElements = new Dictionary<string, UIElement>(); 
+    public Dictionary<string, UIElement> _UIElements = new Dictionary<string, UIElement>();
     //Omg not actually a private value but for some reason i'm exposing the cache here.
     //gotta figure out why I did it.
+    public TextMeshProUGUI scoreText;
+
     private void Awake()
     {
         if (instance == null)
@@ -79,5 +82,17 @@ public class UIManager : MonoBehaviour
     public static void HideElement(string UIelementName)
     {
         instance._UIElements[UIelementName].gameObject.SetActive(false);
+    }
+
+    public void UpdateScoreUI(int newScore)
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + newScore;
+        }
+        else
+        {
+            Debug.LogWarning("TextMeshProUGUI per il punteggio non assegnato nell'Inspector!");
+        }
     }
 }

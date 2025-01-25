@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/SimpleStarterProject/Scenes/Managers.unity
-    guid: 330076828e03bbe4eab3ac005906f9fe
+    path: Assets/SimpleStarterProject/Scenes/UICustom.unity
+    guid: c5a6e1e935c69ee40b5620a4fe612419
+  - enabled: 1
+    path: Assets/Scenes/Omino.unity
+    guid: b1f200cdbd225a44791c12cb5c7a3075
   - enabled: 1
     path: Assets/Scenes/World_1.unity
     guid: ca15e4d50a327de46863eb48885cc512
