@@ -65,18 +65,16 @@ public class Player : MonoBehaviour
 
     IEnumerator FireRateBoost(float duration)
     {
-        float originalFireRate = fireRate;
         fireRate /= 2; // Dimezza il tempo tra i colpi (spara più velocemente)
         yield return new WaitForSeconds(duration);
-        fireRate = originalFireRate; // Ripristina la velocità di fuoco originale
+        fireRate = 0.5f; // Ripristina la velocità di fuoco originale
     }
 
     IEnumerator SpeedBoost(float duration)
     {
-        float originalSpeed = speed;
         speed *= 2; // Doppia velocità di movimento
         yield return new WaitForSeconds(duration);
-        speed = originalSpeed; // Ripristina la velocità originale
+        speed = 5f; // Ripristina la velocità originale
     }
 
     IEnumerator TripleShotBoost(float duration)
