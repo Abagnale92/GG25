@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] float speed = 5f;
     [SerializeField] float maxSpeed = 15f;  
     [SerializeField] GameObject projectilePrefab;
+    public GameObject powerUpTextPrefab;
     [SerializeField] Transform firePoint;
     [SerializeField] float fireRate = 0.5f;
     private float nextFireTime = 0f;
@@ -92,15 +94,21 @@ public class Player : MonoBehaviour
     // Metodo per attivare i Power-ups
     public void ActivatePowerUp(PowerUpType type, float duration)
     {
+        GameObject pref = Instantiate(powerUpTextPrefab, transform.position, Quaternion.identity, GameManager.instance.transform);
+        TextMeshProUGUI txt = pref.GetComponentInChildren<TextMeshProUGUI>();
+
         switch (type)
         {
             case PowerUpType.FireRate:
+                txt.text = "SHOOT FASTER";
                 StartCoroutine(FireRateBoost(duration));
                 break;
             case PowerUpType.Speed:
+                txt.text = "LESS SLIPPERY";
                 StartCoroutine(SpeedBoost(duration));
                 break;
             case PowerUpType.TripleShot:
+                txt.text = "MORE EGGS!";
                 StartCoroutine(TripleShotBoost(duration));
                 break;
         }
@@ -115,9 +123,9 @@ public class Player : MonoBehaviour
 
     IEnumerator SpeedBoost(float duration)
     {
-        speed *= 2; // Doppia velocità di movimento
+        GameManager.instance.slipperyLevel -= 2;
         yield return new WaitForSeconds(duration);
-        speed = 5f; // Ripristina la velocità originale
+     
     }
 
     IEnumerator TripleShotBoost(float duration)

@@ -139,6 +139,7 @@ MonoBehaviour:
   speed: 10
   maxSpeed: 12
   projectilePrefab: {fileID: 8688104658637812110, guid: 0202c3fd7ec5c204cb5182f093adb88b, type: 3}
+  powerUpTextPrefab: {fileID: 5588143842530370742, guid: 4846e674117d8614dbe3e7c1d922b06f, type: 3}
   firePoint: {fileID: 7422437741399016296}
   fireRate: 0.5
   animator: {fileID: 2586333572180771790}
