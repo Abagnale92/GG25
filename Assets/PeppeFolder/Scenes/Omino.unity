@@ -443,7 +443,6 @@ MonoBehaviour:
   prefab: {fileID: 6262501956429844256, guid: c9ae5ef9161002c45b24daff19cf4061, type: 3}
   timerSpawner: 5
   _timerSpawner: 0
-  gameTime: 0
 --- !u!61 &1200146640
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -704,7 +703,7 @@ PrefabInstance:
     - target: {fileID: 4152608312385539771, guid: 159997b4c4e5905428c45605acbcf0e3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -3966044189379602213, guid: 8f2394efbd5710342b80fa8a76dcbd2e, type: 3}
+      objectReference: {fileID: -6023504057619896223, guid: 998c64a5ecd0e604f8da5d2002e879b2, type: 3}
     - target: {fileID: 4152608312385539771, guid: 159997b4c4e5905428c45605acbcf0e3, type: 3}
       propertyPath: m_Color.a
       value: 1

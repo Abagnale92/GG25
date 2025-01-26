@@ -399,9 +399,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2021926426}
     m_Modifications:
+    - target: {fileID: 285496151995113409, guid: 2dac19a54fc29344297ab767b8a49fe6, type: 3}
+      propertyPath: UIKey
+      value: PenguinAnimUI
+      objectReference: {fileID: 0}
     - target: {fileID: 6393995932364154515, guid: 2dac19a54fc29344297ab767b8a49fe6, type: 3}
       propertyPath: m_Name
-      value: PenguinUI
+      value: PenguinAnimUI
       objectReference: {fileID: 0}
     - target: {fileID: 7089856718428139108, guid: 2dac19a54fc29344297ab767b8a49fe6, type: 3}
       propertyPath: m_Pivot.x
@@ -2382,22 +2386,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIElements:
   - {fileID: 868972942}
-  - {fileID: 251656144}
-  - {fileID: 222628088}
-  - {fileID: 1166660384}
-  - {fileID: 652768506}
   - {fileID: 119621833}
   - {fileID: 173429740}
+  - {fileID: 222628088}
+  - {fileID: 251656144}
   - {fileID: 266305604}
   - {fileID: 452104201}
+  - {fileID: 652768506}
   - {fileID: 713650385}
+  - {fileID: 1166660384}
   - {fileID: 1170409125}
   - {fileID: 1289504522}
   - {fileID: 1305829156}
   - {fileID: 1547878165}
+  - {fileID: 1879310971}
   - {fileID: 1995301991}
   - {fileID: 2083241893}
-  - {fileID: 1879310971}
   - {fileID: 1929495702}
   scoreText: {fileID: 119621831}
   TimerPrefab: {fileID: 6611180941871197609, guid: f3b9ddfec4b8fcb41b171146a6acaa69, type: 3}
@@ -2992,7 +2996,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 12}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &696173994
@@ -3015,13 +3019,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A penguin on a soap bar must avoid falling off the ice sheet it's standing
-    on. Help it by preventing bubbles from hitting the ice, so it doesn\u2019t become
-    even more slippery.\n\nShoot bubbles with SPACEBAR\nMove the penguin with A,
-    D, or the arrow keys\nCollect rubber ducks for power-ups!"
+  m_text: "A PENGUIN ON A SOAP BAR MUST AVOID FALLING OFF THE ICE SHEET IT'S STANDING
+    ON. HELP IT BY PREVENTING BUBBLES FROM HITTING THE ICE, SO IT DOESN\u2019T BECOME
+    EVEN MORE SLIPPERY.\n\nSHOOT BUBBLES WITH SPACEBAR\nMOVE THE PENGUIN WITH A,
+    D, OR THE ARROW KEYS\nCOLLECT RUBBER DUCKS FOR POWER-UPS!  \n\nCREATED BY\nGIUSEPPE
+    ABAGNALE\nFRANCESCO BREVE"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ed775472628ec314b89b6e9a4dab843f, type: 2}
+  m_sharedMaterial: {fileID: -3136776259565532971, guid: ed775472628ec314b89b6e9a4dab843f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3045,8 +3050,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5281,7 +5286,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PenguinUI
+          m_StringArgument: PenguinAnimUI
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1305829154
