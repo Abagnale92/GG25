@@ -7,7 +7,7 @@ public class PowerUp : MonoBehaviour
     [SerializeField] public PowerUpType powerUpType;
     [SerializeField] float duration = 5f; // Tempo di durata del potenziamento
 
-    public Sprite[] powerUpSprites;
+
     public SpriteRenderer spriteRender;
 
     private void Start()
@@ -21,13 +21,13 @@ public class PowerUp : MonoBehaviour
         switch (powerUpType)
         {
             case PowerUpType.FireRate:
-                spriteRender.sprite = powerUpSprites[0];
+                spriteRender.sprite = UIManager.instance.powerUpSprites[0];
                 break;
             case PowerUpType.Speed:
-                spriteRender.sprite = powerUpSprites[1];
+                spriteRender.sprite = UIManager.instance.powerUpSprites[1];
                 break;
             case PowerUpType.TripleShot:
-                spriteRender.sprite = powerUpSprites[2];
+                spriteRender.sprite = UIManager.instance.powerUpSprites[2];
                 break;
         }
     }

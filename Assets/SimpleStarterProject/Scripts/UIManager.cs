@@ -13,6 +13,16 @@ public class UIManager : MonoBehaviour
     //Omg not actually a private value but for some reason i'm exposing the cache here.
     //gotta figure out why I did it.
     public TextMeshProUGUI scoreText;
+    public GameObject TimerPrefab;
+    public Transform StatusPanel;
+
+    public Sprite[] powerUpSprites;
+
+    public void AddPowerUpStatus(PowerUpType pt)
+    {
+       GameObject pref = Instantiate(TimerPrefab, StatusPanel);
+        pref.GetComponent<StatusTimer>().SetIcon(pt);
+    }
 
     private void Awake()
     {
@@ -88,7 +98,7 @@ public class UIManager : MonoBehaviour
     {
         if (scoreText != null)
         {
-            scoreText.text = "Score: " + newScore;
+            scoreText.text = "SCORE: " + newScore;
         }
         else
         {

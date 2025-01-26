@@ -200,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scorePrefab: {fileID: 5588143842530370742, guid: 03c65de0f9eb2454eb64a4679d9c89e4, type: 3}
   warningPerfab: {fileID: 5588143842530370742, guid: 2c13e2056f721064482c4a29d6a0e60f, type: 3}
+  burstPrefab: {fileID: 7922504036774180738, guid: 4a4d79e1aaf6ecb48a9edc64e9bad5ad, type: 3}
   powerUp: {fileID: 1921824244077088732}
   BubbleSize: 1
   splitForce: 5

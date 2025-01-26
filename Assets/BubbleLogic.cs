@@ -4,6 +4,7 @@ public class BubbleLogic : MonoBehaviour
 {
     public GameObject scorePrefab;
     public GameObject warningPerfab;
+    public GameObject burstPrefab;
     private Rigidbody2D _rb;
     private float _swayTimer;
     public Transform powerUp;
@@ -99,18 +100,20 @@ public class BubbleLogic : MonoBehaviour
     public void OnDeath()
     {
         Instantiate(scorePrefab, transform.position, Quaternion.identity, transform.parent);
+        Instantiate(burstPrefab, transform.position, Quaternion.identity, transform.parent);
+
         if (BubbleSize <= 1)
         {
             AudioManager.instance.Play("bubble1");
             FreePowerUp();
-           
+            
             Destroy(this.gameObject);
         } else
         {
 
             if(BubbleSize >= 4)
             {
-                AudioManager.instance.Play("bubble3");
+                AudioManager.instance.Play("bubble2");
             } else
             {
                 AudioManager.instance.Play("bubble2");

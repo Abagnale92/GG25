@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
     {
         GameObject pref = Instantiate(powerUpTextPrefab, transform.position, Quaternion.identity, GameManager.instance.transform);
         TextMeshProUGUI txt = pref.GetComponentInChildren<TextMeshProUGUI>();
-
+        UIManager.instance.AddPowerUpStatus(type);
         switch (type)
         {
             case PowerUpType.FireRate:

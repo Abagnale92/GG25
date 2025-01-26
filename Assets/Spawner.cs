@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
     private BoxCollider2D spawnZone;
     public float timerSpawner;
     public float _timerSpawner;
-    public float gameTime;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,11 +18,11 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         _timerSpawner -= Time.deltaTime;
-        gameTime += Time.deltaTime;
+
         if(_timerSpawner <= 0)
         {
             SpawnBubble();
-            _timerSpawner = timerSpawner - Mathf.Clamp((Mathf.Log(gameTime) + 1), 1, 9f)/2;
+            _timerSpawner = timerSpawner - Mathf.Clamp((Mathf.Log(GameManager.instance.timeScore) + 1), 1, 9f)/2;
         }
     }
 
@@ -37,7 +37,7 @@ public class Spawner : MonoBehaviour
 
 
         // Randomize the bubble size around the evaluated average (add variation)
-        int bubbleSize = Mathf.Clamp((((Mathf.FloorToInt(Random.Range(1, (Mathf.Log(gameTime) + 1)))/2) *2)),1,16);
+        int bubbleSize = Mathf.Clamp((((Mathf.FloorToInt(Random.Range(1, (Mathf.Log(GameManager.instance.timeScore) + 1)))/2) *2)),1,16);
 
         // Set the bubble size in the BubbleLogic script
         BubbleLogic bubbleLogic = newBubble.GetComponent<BubbleLogic>();

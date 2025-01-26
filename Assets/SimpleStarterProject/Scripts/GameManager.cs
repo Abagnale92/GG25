@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [SerializeField] public GameState gameState;
     public int slipperyLevel = 0;
-    private int score = 0;
-    private float timeScore = 0;
+    public int score = 0;
+    public float timeScore = 0;
     private int finalScore = 0;
     public GameObject bubblePrefab;
 
@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
 
 
     }
+
+   
 
     public void GameOverScreen()
     {
