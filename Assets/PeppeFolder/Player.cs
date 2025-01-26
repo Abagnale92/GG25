@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
 
             for(int i = 0; i<eggsToShoot; i++)
             {
-                Instantiate(projectilePrefab, firePoint.position, Quaternion.Euler(0, 0, 15 * Mathf.Sin((Mathf.PI/2 ))*i ));
+                Instantiate(projectilePrefab, firePoint.position, Quaternion.Euler(0, 0, 15 * Mathf.Sin((Mathf.PI / 2) * (i / (float)eggsToShoot))));
             }
             /*
             if (isTripleShotActive)
