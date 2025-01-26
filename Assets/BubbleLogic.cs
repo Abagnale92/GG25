@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class BubbleLogic : MonoBehaviour
 {
+    public GameObject scorePrefab;
+    public GameObject warningPerfab;
     private Rigidbody2D _rb;
     private float _swayTimer;
     public Transform powerUp;
@@ -77,6 +79,7 @@ public class BubbleLogic : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Ground"))
         {
+            Instantiate(warningPerfab, transform.position, Quaternion.identity, transform.parent);
             GameManager.instance.LoseLife();
             OnDeath();
         }
@@ -95,10 +98,12 @@ public class BubbleLogic : MonoBehaviour
 
     public void OnDeath()
     {
-        if(BubbleSize <= 1)
+        Instantiate(scorePrefab, transform.position, Quaternion.identity, transform.parent);
+        if (BubbleSize <= 1)
         {
             AudioManager.instance.Play("bubble1");
             FreePowerUp();
+           
             Destroy(this.gameObject);
         } else
         {

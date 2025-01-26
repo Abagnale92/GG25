@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     private float timeScore = 0;
     private int finalScore = 0;
     public GameObject bubblePrefab;
+
     public List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
 
     public void LoseLife()
@@ -42,19 +43,38 @@ public class GameManager : MonoBehaviour
     {
         gameState = GameState.GAME_OVER;
         FindFirstObjectByType<Player>().GetComponent<Animator>().SetBool("Lost", true);
+
+
+        
+       
         UIManager.ShowElement("RestartBtn");
         Time.timeScale = 0;
     }
 
+    public void ClearBubbles()
+    {
+        BubbleLogic[] bubbles = FindObjectsOfType<BubbleLogic>();
+        foreach (BubbleLogic b in bubbles)
+        {
+            Destroy(b.gameObject);
+        }
+
+
+    }
+
     public static void RestartGame()
     {
+        GameManager.instance.ClearBubbles();
         FindFirstObjectByType<Player>().GetComponent<Animator>().SetBool("Lost", false);
         UIManager.HideElement("RestartBtn");
         Time.timeScale = 1;
         UnloadScene(1);
         LoadScene(1);
+        GameManager.instance.SetGameState(1);
         GameManager.instance.slipperyLevel = 0;
         GameManager.instance.score = 0;
+        GameManager.instance.timeScore = 0;
+        UIManager.instance.UpdateScoreUI(0);
 
     }
 

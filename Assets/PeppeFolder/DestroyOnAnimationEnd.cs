@@ -4,7 +4,7 @@ public class DestroyOnAnimationEnd : MonoBehaviour
    private Animator animator;
        void Start()
     {
-        Animator animator = GetComponent<Animator>();
+        Animator animator = GetComponentInChildren<Animator>();
 
         if (animator != null)
         {

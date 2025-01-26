@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7003049198472463721}
   - component: {fileID: 8202490981346920677}
   - component: {fileID: 8512052841756030835}
+  - component: {fileID: 1982290092523217635}
   m_Layer: 5
   m_Name: BubbleText
   m_TagString: Untagged
@@ -72,6 +73,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac1b2b3c4e4b77246852fe81c4aa09a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!223 &1982290092523217635
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4495863852010311542}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &6851710225730756323
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,8 +163,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: +10
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ed775472628ec314b89b6e9a4dab843f, type: 2}
+  m_sharedMaterial: {fileID: -3136776259565532971, guid: ed775472628ec314b89b6e9a4dab843f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

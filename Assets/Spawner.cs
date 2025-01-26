@@ -23,14 +23,6 @@ public class Spawner : MonoBehaviour
         {
             SpawnBubble();
             _timerSpawner = timerSpawner - Mathf.Clamp((Mathf.Log(gameTime) + 1), 1, 9f)/2;
-            /*
-                        float randomX = Random.Range(spawnZone.bounds.min.x, spawnZone.bounds.max.x);
-                        float randomY = Random.Range(spawnZone.bounds.min.y, spawnZone.bounds.max.y);
-
-                        Vector2 spawnPosition = new Vector2(randomX, randomY);
-                        //Vector2 coord = new Vector2(Random.Range(-spawnZone.bounds.extents.x , spawnZone.bounds.extents.x), Random.Range(-spawnZone.bounds.extents.y, spawnZone.bounds.extents.y));
-                        Instantiate(prefab, spawnPosition, Quaternion.identity);
-                        _timerSpawner = timerSpawner; */
         }
     }
 
@@ -60,7 +52,7 @@ public class Spawner : MonoBehaviour
                     bubbleLogic.SetPowerUp(PowerUpType.FireRate);
                     break;
                 case 1:
-                    //bubbleLogic.SetPowerUp(PowerUpType.Speed);
+                    bubbleLogic.SetPowerUp(PowerUpType.Speed);
                     break;
                 case 2:
                     bubbleLogic.SetPowerUp(PowerUpType.TripleShot);
