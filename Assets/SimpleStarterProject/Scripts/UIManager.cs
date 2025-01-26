@@ -24,6 +24,13 @@ public class UIManager : MonoBehaviour
         pref.GetComponent<StatusTimer>().SetIcon(pt);
     }
 
+
+    public void SetupGameOverScreen()
+    {
+        instance._UIElements["BubbleScore"].GetComponent<TextMeshProUGUI>().text = GameManager.instance.score + "";
+        instance._UIElements["TimeScore"].GetComponent<TextMeshProUGUI>().text = Mathf.FloorToInt(GameManager.instance.timeScore) + "";
+        instance._UIElements["TotalScore"].GetComponent<TextMeshProUGUI>().text = Mathf.FloorToInt(GameManager.instance.timeScore + GameManager.instance.score) + "";
+    }
     private void Awake()
     {
         if (instance == null)
@@ -86,12 +93,12 @@ public class UIManager : MonoBehaviour
 
     public static void ShowElement(string UIelementName)
     {
-        instance._UIElements[UIelementName].gameObject.SetActive(true);
+        instance._UIElements[UIelementName].gameObject?.SetActive(true);
     }
 
     public static void HideElement(string UIelementName)
     {
-        instance._UIElements[UIelementName].gameObject.SetActive(false);
+        instance._UIElements[UIelementName].gameObject?.SetActive(false);
     }
 
     public void UpdateScoreUI(int newScore)

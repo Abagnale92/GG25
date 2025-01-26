@@ -5,7 +5,7 @@ public enum PowerUpType { FireRate, Speed, TripleShot }
 public class PowerUp : MonoBehaviour
 {
     [SerializeField] public PowerUpType powerUpType;
-    [SerializeField] float duration = 5f; // Tempo di durata del potenziamento
+    [SerializeField] float duration = 10f; // Tempo di durata del potenziamento
 
 
     public SpriteRenderer spriteRender;

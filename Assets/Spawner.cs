@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour
         BubbleLogic bubbleLogic = newBubble.GetComponent<BubbleLogic>();
 
         float rand = Random.Range(0, 100);
-        if(rand <= 20)
+        if(rand <= 30)
         {
             rand = Random.Range(0, 3);
             switch (rand)

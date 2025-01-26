@@ -75,11 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpType: 0
-  duration: 5
-  powerUpSprites:
-  - {fileID: -700145753515148034, guid: f8e1063bc76ddbb44bf5522d1db1464b, type: 3}
-  - {fileID: -1615591449214129068, guid: f8e1063bc76ddbb44bf5522d1db1464b, type: 3}
-  - {fileID: 1487878086579342849, guid: f8e1063bc76ddbb44bf5522d1db1464b, type: 3}
+  duration: 10
   spriteRender: {fileID: 4611695583887817737}
 --- !u!58 &2980467271914673401
 CircleCollider2D:

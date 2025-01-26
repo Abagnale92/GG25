@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] Transform firePoint;
     [SerializeField] float fireRate = 0.5f;
     private float nextFireTime = 0f;
+    private int eggsToShoot = 1;
     private bool isTripleShotActive = false;
     [SerializeField] private Animator animator;
     private Rigidbody2D rb;
@@ -42,12 +43,12 @@ public class Player : MonoBehaviour
         if (moveInput != 0)
         {
             lastMoveDirection = moveInput > 0 ? 1 : -1;
-            rb.AddForce(Vector2.right * moveInput * speed * Time.deltaTime * 60 * (1 + GameManager.instance.slipperyLevel/5));
+            rb.AddForce(Vector2.right * moveInput * speed * Time.deltaTime * 60 * Mathf.Max((1 + GameManager.instance.slipperyLevel/5),1));
         }
         else
         {
             // Continue moving in the last direction without additional force
-            rb.AddForce(Vector2.right * lastMoveDirection * speed * Time.deltaTime * 20 * (1 + GameManager.instance.slipperyLevel / 5));
+            rb.AddForce(Vector2.right * lastMoveDirection * speed * Time.deltaTime * 20 * Mathf.Max((1 + GameManager.instance.slipperyLevel / 5), 1));
         }
 
         animator.SetFloat("Speed", Mathf.Abs(moveInput));
@@ -67,6 +68,12 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) && Time.time >= nextFireTime)
         {
+
+            for(int i = 0; i<eggsToShoot; i++)
+            {
+                Instantiate(projectilePrefab, firePoint.position, Quaternion.Euler(0, 0, 15 * Mathf.Sin((Mathf.PI/2 ))*i ));
+            }
+            /*
             if (isTripleShotActive)
             {
                 ShootTriple();
@@ -76,8 +83,8 @@ public class Player : MonoBehaviour
                 AudioManager.instance.Play("throw");
                 Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
             }
-
-            nextFireTime = Time.time + fireRate;
+            */
+            nextFireTime = Time.time + Mathf.Max(fireRate,0.01f);
         }
     }
 
@@ -117,9 +124,9 @@ public class Player : MonoBehaviour
 
     IEnumerator FireRateBoost(float duration)
     {
-        fireRate /= 2; // Dimezza il tempo tra i colpi (spara più velocemente)
+        fireRate -= 0.1f; // Dimezza il tempo tra i colpi (spara più velocemente)
         yield return new WaitForSeconds(duration);
-        fireRate = 0.5f; // Ripristina la velocità di fuoco originale
+        fireRate += 0.1f; // Ripristina la velocità di fuoco originale
     }
 
     IEnumerator SpeedBoost(float duration)
@@ -131,8 +138,10 @@ public class Player : MonoBehaviour
 
     IEnumerator TripleShotBoost(float duration)
     {
-        isTripleShotActive = true;
+        //isTripleShotActive = true;
+        eggsToShoot += 1;
         yield return new WaitForSeconds(duration);
-        isTripleShotActive = false;
+        eggsToShoot -= 1;
+        //isTripleShotActive = false;
     }
 }

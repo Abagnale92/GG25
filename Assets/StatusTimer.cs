@@ -11,7 +11,7 @@ public class StatusTimer : MonoBehaviour
     {
         bar = GetComponent<ProgressBar>();
         bar.minimum = 0;
-        bar.maximum = 5;
+        bar.maximum = 10;
         bar.current = bar.maximum;
     }
 

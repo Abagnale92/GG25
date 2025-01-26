@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public GameObject bubblePrefab;
 
     public List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
+    private bool showTutorial = false;
 
     public void LoseLife()
     {
@@ -44,8 +45,8 @@ public class GameManager : MonoBehaviour
     public void GameOverScreen()
     {
         gameState = GameState.GAME_OVER;
-        FindFirstObjectByType<Player>().GetComponent<Animator>().SetBool("Lost", true);
-
+        // FindFirstObjectByType<Player>().GetComponent<Animator>().SetBool("Lost", true);
+        UIManager.instance.SetupGameOverScreen();     
 
         
        
@@ -115,6 +116,13 @@ public class GameManager : MonoBehaviour
 
             case GameState.GAME_SETUP:
                 AudioManager.instance.SetPitch("music", 0.4f);
+
+                if (!showTutorial)
+                {
+                    UIManager.ShowElement("Tutorial");
+                    showTutorial = true;
+                }
+                
                 gameState = GameState.GAME_LOOP;
                 //State Code
                 break;
