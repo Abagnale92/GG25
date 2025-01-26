@@ -33,11 +33,8 @@ public class GameManager : MonoBehaviour
 
     public void LoseLife()
     {
-        AudioManager.instance.SetPitch("music", 0.4f + Mathf.Clamp((slipperyLevel/20f), 0, 1));
+        AudioManager.instance.SetPitch("music", 0.4f + Mathf.Clamp((slipperyLevel/10f), 0, 1));
         slipperyLevel += 1;
-  
-
-
     }
 
    
